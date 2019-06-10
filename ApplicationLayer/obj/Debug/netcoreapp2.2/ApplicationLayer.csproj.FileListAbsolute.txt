@@ -1,0 +1,12 @@
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\bin\Debug\netcoreapp2.2\ApplicationLayer.deps.json
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\bin\Debug\netcoreapp2.2\ApplicationLayer.dll
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\bin\Debug\netcoreapp2.2\ApplicationLayer.pdb
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\bin\Debug\netcoreapp2.2\DomainLayer.dll
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\bin\Debug\netcoreapp2.2\DomainLayer.pdb
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\obj\Debug\netcoreapp2.2\ApplicationLayer.csprojAssemblyReference.cache
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\obj\Debug\netcoreapp2.2\ApplicationLayer.csproj.CoreCompileInputs.cache
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\obj\Debug\netcoreapp2.2\ApplicationLayer.AssemblyInfoInputs.cache
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\obj\Debug\netcoreapp2.2\ApplicationLayer.AssemblyInfo.cs
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\obj\Debug\netcoreapp2.2\ApplicationLayer.csproj.CopyComplete
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\obj\Debug\netcoreapp2.2\ApplicationLayer.dll
+C:\Users\milos.RETAIL\source\repos\AspProject\ApplicationLayer\obj\Debug\netcoreapp2.2\ApplicationLayer.pdb

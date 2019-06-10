@@ -1,0 +1,14 @@
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\bin\Debug\netcoreapp2.2\EfDataAccess.deps.json
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\bin\Debug\netcoreapp2.2\EfDataAccess.dll
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\obj\Debug\netcoreapp2.2\EfDataAccess.csprojAssemblyReference.cache
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\obj\Debug\netcoreapp2.2\EfDataAccess.csproj.CoreCompileInputs.cache
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\obj\Debug\netcoreapp2.2\EfDataAccess.AssemblyInfoInputs.cache
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\obj\Debug\netcoreapp2.2\EfDataAccess.AssemblyInfo.cs
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\bin\Debug\netcoreapp2.2\EfDataAccess.runtimeconfig.json
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\bin\Debug\netcoreapp2.2\EfDataAccess.runtimeconfig.dev.json
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\bin\Debug\netcoreapp2.2\EfDataAccess.pdb
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\bin\Debug\netcoreapp2.2\DomainLayer.dll
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\bin\Debug\netcoreapp2.2\DomainLayer.pdb
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\obj\Debug\netcoreapp2.2\EfDataAccess.csproj.CopyComplete
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\obj\Debug\netcoreapp2.2\EfDataAccess.dll
+C:\Users\milos.RETAIL\source\repos\AspProject\EfDataAccess\obj\Debug\netcoreapp2.2\EfDataAccess.pdb

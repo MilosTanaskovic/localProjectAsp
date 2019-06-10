@@ -1,0 +1,9 @@
+C:\Users\milos.RETAIL\source\repos\AspProject\DomainLayer\bin\Debug\netcoreapp2.2\DomainLayer.deps.json
+C:\Users\milos.RETAIL\source\repos\AspProject\DomainLayer\bin\Debug\netcoreapp2.2\DomainLayer.dll
+C:\Users\milos.RETAIL\source\repos\AspProject\DomainLayer\bin\Debug\netcoreapp2.2\DomainLayer.pdb
+C:\Users\milos.RETAIL\source\repos\AspProject\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.csproj.CoreCompileInputs.cache
+C:\Users\milos.RETAIL\source\repos\AspProject\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.AssemblyInfoInputs.cache
+C:\Users\milos.RETAIL\source\repos\AspProject\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.AssemblyInfo.cs
+C:\Users\milos.RETAIL\source\repos\AspProject\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.dll
+C:\Users\milos.RETAIL\source\repos\AspProject\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.pdb
+C:\Users\milos.RETAIL\source\repos\AspProject\DomainLayer\obj\Debug\netcoreapp2.2\DomainLayer.csprojAssemblyReference.cache
