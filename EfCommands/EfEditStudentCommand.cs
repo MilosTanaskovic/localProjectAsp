@@ -16,7 +16,7 @@ namespace EfCommands
 
         }
 
-        public void Execute(StudentDto request)
+        public void Execute(CreateStudentDto request)
         {
             var editStd = _context.Students.Find(request.Id);
 
@@ -25,12 +25,19 @@ namespace EfCommands
 
             if(editStd.StudentName != request.StudentName)
             {
-                if(_context.Students.Any(s => s.StudentName == request.StudentName && s.NumberIndex == request.NumberIndex))
+                if(_context.Students.Any(s => s.StudentName == request.StudentName/* && s.NumberIndex == request.NumberIndex*/))
                 {
                     throw new EntityNotFoundException();
                 }
 
                 editStd.StudentName = request.StudentName;
+                editStd.NumberIndex = request.NumberIndex;
+                editStd.StudyYear = request.StudyYear;
+                editStd.NumberPhone = request.NumberPhone;
+                editStd.Natioanality = request.Natioanality;
+                editStd.BirthDate = request.BirthDate;
+                editStd.StandardId = request.StandardId;
+
 
                 _context.SaveChanges();
             }

@@ -19,19 +19,22 @@ namespace ApiApp.Controllers
         private readonly IGetCourseCommand _getCommandCourse;
         private readonly IDeleteCourseCommand _delCommandCourse;
         private readonly IEditCourseCommand _editCommandCourse;
+        private readonly IAddCourseCommand _addCommandCourse;
+        
 
-
-        public CourseController(IGetCoursesCommand getCommandCourses, IGetCourseCommand getCommandCourse, IDeleteCourseCommand delCommandCourse, IEditCourseCommand editCommandCourse)
+        public CourseController(IGetCoursesCommand getCommandCourses, IGetCourseCommand getCommandCourse, IDeleteCourseCommand delCommandCourse, IEditCourseCommand editCommandCourse, IAddCourseCommand addCommandCourse)
         {
             _getCommandCourses = getCommandCourses;
             _getCommandCourse = getCommandCourse;
             _delCommandCourse = delCommandCourse;
             _editCommandCourse = editCommandCourse;
+            _addCommandCourse = addCommandCourse;
         }
 
         // GET: api/Course
         [HttpGet]
-        public IActionResult Get([FromQuery]CourseSearchQuery search)
+        [ProducesResponseType(200)]
+        public ActionResult<IEnumerable<CourseDto>> Get([FromQuery]CourseSearchQuery search)
         {
             var resultCourses = _getCommandCourses.Execute(search);
             return Ok(resultCourses); //200
@@ -39,7 +42,9 @@ namespace ApiApp.Controllers
 
         // GET: api/course/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public ActionResult<IEnumerable<CourseDto>> Get(int id)
         {
             try
             {
@@ -54,13 +59,30 @@ namespace ApiApp.Controllers
 
         // POST: api/course
         [HttpPost]
-        public void Post([FromBody] string value)
+        [ProducesResponseType(201)]
+        [ProducesResponseType(500)]
+        public ActionResult<IEnumerable<CreateCourseDto>> Post([FromBody] CreateCourseDto dto)
         {
+            try
+            {
+                _addCommandCourse.Execute(dto);
+                return StatusCode(StatusCodes.Status201Created);
+            }
+            catch (EntityNotFoundException e)
+            {
+                return UnprocessableEntity(e.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
         // PUT: api/course/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] CreateCourseDto dto)
+        [ProducesResponseType(204)]
+        [ProducesResponseType(500)]
+        public ActionResult<IEnumerable<CreateCourseDto>> Put(int id, [FromBody] CreateCourseDto dto)
         {
             dto.Id = id;
             try
@@ -77,7 +99,7 @@ namespace ApiApp.Controllers
 
                 return UnprocessableEntity(e.Message);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return StatusCode(500, "error");
             }
@@ -85,7 +107,10 @@ namespace ApiApp.Controllers
 
         // DELETE: api/course/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public ActionResult<IEnumerable<CourseDto>> Delete(int id)
         {
             try
             {

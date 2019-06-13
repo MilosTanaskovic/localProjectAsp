@@ -1,5 +1,6 @@
 ﻿using ApplicationLayer.Commands;
 using ApplicationLayer.DTO;
+using ApplicationLayer.Responses;
 using ApplicationLayer.SearchQuery;
 using EfDataAccess;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,7 @@ namespace EfCommands
         }
         
 
-        public IEnumerable<CourseDto> Execute(CourseSearchQuery request)
+        public PagedResponse<CourseDto> Execute(CourseSearchQuery request)
         {
             var getCourse = _context.Courses.AsQueryable();
 
@@ -32,17 +33,33 @@ namespace EfCommands
                 .Contains(keyword));
             }
 
-            return getCourse
+
+            var totalCount = getCourse.Count();
+
+            var result = getCourse
                 .Include(c => c.CourseStudents)
-                .ThenInclude(cs => cs.Course)
-                .Select(c => new CourseDto
+                .ThenInclude(cs => cs.Course).Skip((request.PageNumber - 1)* request.PerPage).Take(request.PerPage);
+                
+
+            
+            var pageCount = (int)Math.Ceiling((double)totalCount/request.PerPage);
+
+            var response = new PagedResponse<CourseDto>
+            {
+                CurrentPage = request.PageNumber,
+                TotalCount = totalCount,
+                PagesCount = pageCount,
+                Data = getCourse.Select(c => new CourseDto
                 {
                     Id = c.Id,
                     CourseName = c.CourseName,
                     Description = c.Description,
                     Location = c.Location,
                     StudentName = c.CourseStudents.Select(cs => cs.Student.StudentName)
-                });
+                })
+            };
+
+            return response;
                 
         }
     }

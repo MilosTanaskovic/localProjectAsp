@@ -33,9 +33,9 @@ namespace EfCommands
             //editCourse.Id = request.Id;
             editCourse.CourseName = request.CourseName;
             editCourse.Description = request.Description;
-            editCourse.Location = request.Location;
-            editCourse.TeacherId = request.TeacherId;
+            editCourse.Location = request.Location;           
             editCourse.CreatedAt = DateTime.Now;
+            editCourse.TeacherId = request.TeacherId;
 
             _context.SaveChanges();
         }

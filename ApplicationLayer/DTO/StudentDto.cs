@@ -8,12 +8,9 @@ namespace ApplicationLayer.DTO
     public class StudentDto
     {
 
-        [Required(ErrorMessage = "This filed is required! Please, try again!")]
+        //[Required(ErrorMessage = "This filed is required! Please, try again!")]
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "This filed is required! Please, try again!")]
-        public int StandardId { get; set; }
-
+       
         [Required(ErrorMessage = "This filed is required! Please, try again!")]
         [RegularExpression("^[A-Z][a-z]{2,20}$", ErrorMessage = "The name isn't correct. Please, try again!")]
         public string StudentName { get; set; }
@@ -27,6 +24,9 @@ namespace ApplicationLayer.DTO
         public int NumberPhone { get; set; }
         public string Natioanality { get; set; }
         public int BirthDate { get; set; }
+
+        [Required(ErrorMessage = "This filed is required! Please, try again!")]
+        public int StandardId { get; set; }
 
 
     }

@@ -41,6 +41,7 @@ namespace WebApp
             services.AddTransient<IGetStudentsCommand, EfGetStudentsCommand>();
             services.AddTransient<IGetStudentCommand, EfGetStudentCommand>();
             services.AddTransient<IEditStudentCommand, EfEditStudentCommand>();
+            services.AddTransient<IDeleteStudentCommand, EfDeleteStudentCommand>();
             
         }
 

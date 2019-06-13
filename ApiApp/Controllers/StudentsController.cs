@@ -19,25 +19,53 @@ namespace ApiApp.Controllers
         private IGetStudentCommand _getCommandStd;
         private IAddStudentCommand _addCommandStd;
         private IDeleteStudentCommand _delCommandStd;
+        private IEditStudentCommand _editCommandStd;
 
-        public StudentsController(IGetStudentsCommand getCommandStds, IGetStudentCommand getCommandStd, IAddStudentCommand addCommandStd, IDeleteStudentCommand delCommandStd)
+        public StudentsController(IGetStudentsCommand getCommandStds, IGetStudentCommand getCommandStd, IAddStudentCommand addCommandStd, IDeleteStudentCommand delCommandStd, IEditStudentCommand editCommandStd)
         {
             _getCommandStds = getCommandStds;
             _getCommandStd = getCommandStd;
             _addCommandStd = addCommandStd;
             _delCommandStd = delCommandStd;
+            _editCommandStd = editCommandStd;
         }
 
+
+        /// <summary>
+        /// Returns all Students that match provided query
+        /// </summary> 
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET students
+        ///     {
+        ///        "id": 1,
+        ///        "isDeleted" : false
+        ///        "StudenName": "Nikola",
+        ///        "StudyYear": 3,
+        ///        "NumberIndex" : "6543324",
+        ///        "Nationality" : "Srpsko",
+        ///        "BirthDate" : "14121994",
+        ///        
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="item"></param>
+        /// <returns>A newly created StudentDto</returns>
+        /// <response code="201">Returns the Ok</response>        
         // GET api/students
         [HttpGet]
-        public IActionResult Get([FromQuery]StudentSearchQuery query)
+        [ProducesResponseType(200)]       
+        public ActionResult<IEnumerable<StudentDto>> Get([FromQuery]StudentSearchQuery query)
         {
             return Ok(_getCommandStds.Execute(query)); //200
         }
 
         // GET api/student/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public ActionResult<IEnumerable<StudentDto>> Get(int id)
         {
             try
             {
@@ -54,7 +82,9 @@ namespace ApiApp.Controllers
 
         // POST api/student
         [HttpPost]
-        public IActionResult Post([FromBody] StudentDto dto)
+        [ProducesResponseType(201)]
+        [ProducesResponseType(500)]
+        public ActionResult<IEnumerable<CreateStudentDto>> Post([FromBody] CreateStudentDto dto)
         {
             try
             {
@@ -75,14 +105,37 @@ namespace ApiApp.Controllers
 
         // PUT api/students/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] StudentDto dto)
+        [ProducesResponseType(204)]
+        [ProducesResponseType(500)]
+        public ActionResult<IEnumerable<CreateStudentDto>> Put(int id, [FromBody] CreateStudentDto dto)
         {
+            dto.Id = id;
+            try
+            {
+                _editCommandStd.Execute(dto);
+                return NoContent();
+            }
+            catch (EntityNotFoundException e)
+            {
+                if (e.Message == "Student doesn't exist.")
+                {
+                    return NotFound(e.Message);
+                }
 
+                return UnprocessableEntity(e.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "error");
+            }
         }
 
         // DELETE api/student/5
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public ActionResult<IEnumerable<StudentDto>> Delete(int id)
         {
             try
             {
@@ -93,7 +146,7 @@ namespace ApiApp.Controllers
             {
                 return NotFound(e.Message);  //404
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "It's not working"); //500
             }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ApplicationLayer.Commands
 {
-    public interface IEditStudentCommand : ICommand<StudentDto>
+    public interface IEditStudentCommand : ICommand<CreateStudentDto>
     {
     }
 }

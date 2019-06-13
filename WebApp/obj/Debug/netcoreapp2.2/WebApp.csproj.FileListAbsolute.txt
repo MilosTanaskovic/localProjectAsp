@@ -41,3 +41,4 @@ C:\Users\milos.RETAIL\source\repos\AspProject\WebApp\obj\Debug\netcoreapp2.2\Raz
 C:\Users\milos.RETAIL\source\repos\AspProject\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Students\Details.g.cshtml.cs
 C:\Users\milos.RETAIL\source\repos\AspProject\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Students\Edit.g.cshtml.cs
 C:\Users\milos.RETAIL\source\repos\AspProject\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Courses\Find.g.cshtml.cs
+C:\Users\milos.RETAIL\source\repos\AspProject\WebApp\obj\Debug\netcoreapp2.2\Razor\Views\Students\Delete.g.cshtml.cs

@@ -6,6 +6,8 @@ namespace ApplicationLayer.SearchQuery
 {
     public class CourseSearchQuery
     {
-        public string CourseName { get; set; }              
+        public string CourseName { get; set; }
+        public int PerPage { get; set; } = 1;
+        public int PageNumber { get; set; } = 1;
     }
 }

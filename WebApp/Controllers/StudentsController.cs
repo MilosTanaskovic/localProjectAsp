@@ -17,13 +17,15 @@ namespace WebApp.Controllers
         private readonly IGetStudentsCommand _getCommandStds;
         private readonly IGetStudentCommand _getCommandStd;
         private readonly IEditStudentCommand _editCommandStd;
+        private readonly IDeleteStudentCommand _delCommandStd;
 
-        public StudentsController(IAddStudentCommand addCommandStd, IGetStudentsCommand getCommandStds, IGetStudentCommand getCommandStd, IEditStudentCommand editCommandStd)
+        public StudentsController(IAddStudentCommand addCommandStd, IGetStudentsCommand getCommandStds, IGetStudentCommand getCommandStd, IEditStudentCommand editCommandStd, IDeleteStudentCommand delCommandStd)
         {
             _addCommandStd = addCommandStd;
             _getCommandStds = getCommandStds;
             _getCommandStd = getCommandStd;
             _editCommandStd = editCommandStd;
+            _delCommandStd = delCommandStd;
         }
 
         // GET: Students
@@ -59,7 +61,7 @@ namespace WebApp.Controllers
         // POST: Students/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(StudentDto dto)
+        public ActionResult Create(CreateStudentDto dto)
         {
             if (!ModelState.IsValid)
             {
@@ -99,7 +101,7 @@ namespace WebApp.Controllers
         // POST: Students/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id,[FromBody] StudentDto dto)
+        public ActionResult Edit(int id,[FromBody] CreateStudentDto dto)
         {
             if (!ModelState.IsValid)
             {
@@ -120,6 +122,21 @@ namespace WebApp.Controllers
         // GET: Students/Delete/5
         public ActionResult Delete(int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(id);
+            }
+            try
+            {
+                
+                _delCommandStd.Execute(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                TempData["error"] = "error.";
+            }
+
             return View();
         }
 

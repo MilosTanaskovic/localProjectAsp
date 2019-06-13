@@ -10,9 +10,9 @@ namespace ApplicationLayer.DTO
         public int Id { get; set; }
 
         [Required(ErrorMessage = "This filed is required!")]
-        [RegularExpression("^[A-Z][a-z]{2,20}$", ErrorMessage = "The name isn't correct. Please, try again!")]
+        [RegularExpression("^[A-Z][a-z]{2,20}$", ErrorMessage = "A name isn't correct. Please, try again!")]
         public string CourseName { get; set; }
-
+        [RegularExpression("^[A-Z][a-z]{5,100}$", ErrorMessage = "The description isn't correct. Please, try again!")]
         public string Description { get; set; }
 
         public string Location { get; set; }

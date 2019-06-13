@@ -17,7 +17,7 @@ namespace EfCommands
         {
 
         }
-        public void Execute(StudentDto request)
+        public void Execute(CreateStudentDto request)
         {
             if (_context.Students.Any(std => std.StudentName == request.StudentName && std.NumberIndex == request.NumberIndex && std.StudyYear > 12))
             {
@@ -32,13 +32,15 @@ namespace EfCommands
 
             _context.Students.Add(new Student
             {
+                //Id = request.Id,
                 StudentName = request.StudentName,
                 StudyYear = request.StudyYear,
                 NumberIndex = request.NumberIndex,
                 NumberPhone = request.NumberPhone,
-                Natioanality = null,
+                Natioanality = request.Natioanality,               
+                BirthDate = request.BirthDate,
+                CreatedAt = DateTime.Now,
                 StandardId = request.StandardId,
-                CreatedAt = DateTime.Now
             });
 
             _context.SaveChanges();
